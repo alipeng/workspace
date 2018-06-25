@@ -2,8 +2,7 @@ FROM debian:jessie
 
 LABEL maintainer Alipeng <lipeng.yang@mobvista.com>
 
-RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         apt-transport-https \
         ca-certificates \
@@ -32,6 +31,8 @@ RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list && \
         php5.6-pdo-mysql \
         php5.6-bcmath \
         php5.6-cli \
+        php5.6-mongo \
+        php5.6-igbinary \
         php-pear \
         php5.6-dev && \
     apt-get clean && \
