@@ -13,7 +13,7 @@ RUN set -xe \
         curl \
         wget \
         git \
-        zsh \
+        bash \
         vim \
         openssh-client \
         redis \
@@ -25,12 +25,10 @@ RUN set -xe \
     &&  composer clear-cache \
     && cp -rf /usr/share/zoneinfo/$TZ /etc/localtime \
     && npm install -g pm2 \
-    &&  sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"  || true\
-    && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
-    && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
-    && sed -i 's/plugins=(/plugins=(zsh-autosuggestions zsh-syntax-highlighting/' ~/.zshrc
+    && wget https://git.io/psysh \
+    && chmod +x psysh \
+    && mv psysh /usr/local/bin
 
 WORKDIR /var/www
 
-ENTRYPOINT [ "/bin/zsh" ]
-
+CMD [ "bash" ]
