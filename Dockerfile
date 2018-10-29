@@ -25,10 +25,10 @@ RUN set -xe \
     &&  composer clear-cache \
     && cp -rf /usr/share/zoneinfo/$TZ /etc/localtime \
     && npm install -g pm2 \
-    && wget https://git.io/psysh \
+    && wget https://psysh.org/psysh \
     && chmod +x psysh \
     && mv psysh /usr/local/bin
 
 WORKDIR /var/www
 
-CMD [ "bash" ]
+ENTRYPOINT [ "bash" ]
