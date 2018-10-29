@@ -1,4 +1,4 @@
-FROM alipeng/php5.6-node10-ffmpeg
+FROM alipeng/php5.6-node10-ffmpeg:latest
 
 LABEL maintainer Alipeng <lipeng.yang@mobvista.com>
 
