@@ -27,14 +27,13 @@ RUN set -xe \
     && npm install -g pm2 \
     && wget https://psysh.org/psysh \
     && chmod +x psysh \
-    && mv psysh /usr/local/bin
-
-RUN apk -v --update add \
-        python \
-        py-pip \
-        groff \
-        less \
-        mailcap \
+    && mv psysh /usr/local/bin \
+    && apk -v --update add \
+       python \
+       py-pip \
+       groff \
+       less \
+       mailcap \
     && pip install --upgrade awscli s3cmd python-magic \
     && apk -v --purge del py-pip \
     && rm /var/cache/apk/*
